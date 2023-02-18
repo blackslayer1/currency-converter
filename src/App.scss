@@ -1,0 +1,53 @@
+.App {
+  text-align: center;
+}
+
+body{
+  background-image: linear-gradient(to right, #DECBA4, #3E5151);
+}
+
+.container{
+  position: relative;
+  top: 300px;
+  input{
+    outline: none;
+    height: 35px;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    top: 3px;
+  }
+  select{
+    height: 41px;
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+    outline: none;
+  }
+  .arrow{
+    position: relative;
+    margin: 15px;
+    top: 25px;
+    height: 30px;
+    width: 30px;
+    color: white;
+  }
+}
+
+.text{
+  visibility: hidden;
+  position: absolute;
+  left: 40%;
+  top: 150px;
+  font-size: 20px;
+  h3{
+    color: #f0f0f0;
+  }
+}
+
+#activate{
+  visibility: hidden;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
