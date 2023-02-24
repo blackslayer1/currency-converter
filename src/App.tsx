@@ -1,5 +1,5 @@
 import './App.scss';
-import { useState, useEffect, ChangeEvent, ChangeEventHandler } from 'react';
+import { useState, useEffect, ChangeEvent, MouseEvent } from 'react';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
   const [text, setText] = useState<string>('');
   const [counter1, setCounter1] = useState<number>(0);
   const [counter2, setCounter2] = useState<number>(0);
+  const [openTerminal, setOpenTerminal] = useState<boolean>(true);
 
   async function fetchData(){
     await fetch('https://api.exchangerate.host/latest')
@@ -92,15 +93,43 @@ function App() {
 
   })
 
+  const showTerminal = (e: MouseEvent) => {
+    const arrow = e.target as HTMLDivElement;
+    const terminal = document.getElementById('terminal-container')!;
+
+    if(openTerminal){
+      arrow.style.transform="rotate(-45deg)";
+      terminal.style.visibility="visible";
+      setOpenTerminal(false);
+    } else {
+      arrow.style.transform="rotate(135deg)";
+      terminal.style.visibility="hidden";
+      setOpenTerminal(true);
+    }
+  }
+
+  const changeTheme = (background: string, color: string) => {
+    const terminal = document.getElementById('terminal')! as HTMLTextAreaElement;
+    terminal.style.background=background;
+    terminal.style.color=color;
+  }
+
   return (
     <div className="App">
       <button id="activate" onClick={activate}>activate</button>
+      <div className="crypto">
+        <div className="content">
+        <h1>Bitcoin Price: </h1>
+        <div id="container">
+        <span>$10.213</span>
+        </div>
+        </div>
+      </div>
           <div id="text" className="text">
         <h3>1 {currency_} =</h3>
         <h1>{text} {currency2_}</h1>
         </div>
       <div className="container">
-
       <input id="firstInput" onChange={(e: ChangeEvent<HTMLInputElement>) => {setInput1(e.target.value);}}></input>
       <select id="currencySelect1" onChange={changeHandler1}>
     {number > 0 && d.map((c: any)=>{
@@ -114,6 +143,24 @@ function App() {
       return <option value={c.currencyValue}>{c.currencyName}</option>
     })}
       </select>
+      </div>
+      <div className="terminal-container">
+        <div style={{marginBottom: "10px"}}>
+        <span>Show terminal</span>
+      <div className="triangle_down" onClick={showTerminal} onMouseOver={(e: MouseEvent) => {(e.target as HTMLDivElement).style.transform="rotate(-45deg)"}} onMouseLeave={(e: MouseEvent) => {
+       if(openTerminal){
+        (e.target as HTMLDivElement).style.transform="rotate(135deg)"
+       }
+        }}></div>
+        </div>
+      <div className="terminal-container2" id="terminal-container">
+      <textarea className="terminal" id="terminal" readOnly>~Terminal</textarea>
+      <div className="themes">
+        <div className="hack" onClick={()=>{changeTheme('black', 'limegreen')}}></div>
+        <div className="default" onClick={()=>{changeTheme('rgb(34, 34, 34)', 'white')}}></div>
+        <div className="white" onClick={()=>{changeTheme('white', 'black')}}></div>
+      </div>
+      </div>
       </div>
     </div>
   );

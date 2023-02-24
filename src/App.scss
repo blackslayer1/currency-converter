@@ -1,3 +1,14 @@
+@font-face {
+  font-family: digital;
+  src: url('./font/digital.TTF');
+}
+
+@font-face {
+  font-family: robotomono;
+  src: url('./font\/RobotoMono-Bold.ttf');
+}
+
+
 .App {
   text-align: center;
 }
@@ -50,4 +61,127 @@ body{
   position: absolute;
   top: 20px;
   left: 20px;
+}
+
+.crypto{
+  position: absolute;
+  left: 25%;
+  height: 200px;
+  width: 50%;
+  top: 20px;
+  background: rgb(63, 63, 63);
+  border-radius: 5px;
+  height:20%;
+  .content{
+    position: relative;
+    bottom: 10px;
+  }
+  h1{
+    float: left;
+    margin-left: 40px;
+    margin-top: 60px;
+    color: white;
+    font-family: monospace;
+  }
+  #container{
+    background: rgb(14, 14, 14);
+    border-radius: 5px;
+    width: 60%;
+    height: 100px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 25px;
+    span{
+      position: relative;
+      color: rgb(50, 205, 50);
+      font-family: digital;
+      top: 25px;
+      font-size: 30px;
+      letter-spacing: 0.7em;
+    }
+  }
+}
+
+.terminal-container{
+  position: absolute;
+  width: 50%;
+  height: 230px;
+  bottom: 0;
+  left: 25%;
+.terminal-container2{
+  visibility: hidden;
+  .terminal{
+    position: absolute;
+    width: 70%;
+    height: 200px;
+    left: 100px;
+    background: rgb(31, 31, 31);
+    color:white;
+    font-family: robotomono;
+    resize: none;
+    transition: 0.3s all;
+    outline: none;
+  }
+  .themes{
+    display: flex;
+    position: relative;
+    left: 505px;
+    top: 10px;
+    div{
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .hack{
+      background: #269737;
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      transition: 0.3s all;
+      &:hover{
+        background: darken(#269737, 10%);
+      }
+    }
+    .default{
+      background: #ffbb3d;
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      transition: 0.3s all;
+      &:hover{
+        background: darken(#ffbb3d, 10%);
+      }
+    }
+    .white{
+      background: #f8605e;
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      transition: 0.3s all;
+      &:hover{
+        background: darken(#f8605e, 10%);
+      }
+    }
+  }
+}
+
+  span{
+    color: rgba(255, 255, 255, 0.699);
+    font-family: monospace;
+    font-size: 15px;
+  }
+  .triangle_down {
+    position: relative;
+    top: -2px;
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid rgba(255, 255, 255, 0.699);
+    border-top: 2px solid rgba(255, 255, 255, 0.699);
+    transform: rotate(135deg);
+    margin-right: 0.5em;
+    margin-left: 1.0em;
+    cursor: pointer;
+    transition: 0.3s all;
+  }
 }
