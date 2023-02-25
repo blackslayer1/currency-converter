@@ -1,20 +1,28 @@
+$primary: #d00c2c;
+$secondary: rgb(15, 15, 15);
+$tertiary: rgb(32, 32, 32);
+
 @font-face {
   font-family: digital;
-  src: url('./font/digital.TTF');
+  src: url('./fonts/digital.TTF');
 }
 
 @font-face {
   font-family: robotomono;
-  src: url('./font\/RobotoMono-Bold.ttf');
+  src: url('./fonts\/RobotoMono-Bold.ttf');
 }
 
+@font-face {
+  font-family: whitrabt;
+  src: url('./fonts/whitrabt.ttf');
+}
 
 .App {
   text-align: center;
 }
 
 body{
-  background-image: linear-gradient(to right, #DECBA4, #3E5151);
+  background: $tertiary;
 }
 
 .container{
@@ -23,25 +31,26 @@ body{
   input{
     outline: none;
     height: 35px;
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
     position: relative;
     top: 3px;
+    padding: 10px;
   }
   select{
-    height: 41px;
+    height: 59px;
     position: relative;
-    top: 1px;
+    top: -1px;
     cursor: pointer;
     outline: none;
   }
   .arrow{
     position: relative;
     margin: 15px;
-    top: 25px;
-    height: 30px;
-    width: 30px;
+    top: 30px;
+    height: 40px;
+    width: 40px;
     color: white;
+    cursor: pointer;
   }
 }
 
@@ -53,6 +62,9 @@ body{
   font-size: 20px;
   h3{
     color: #f0f0f0;
+  }
+  h1{
+    color: $primary;
   }
 }
 
@@ -69,9 +81,10 @@ body{
   height: 200px;
   width: 50%;
   top: 20px;
-  background: rgb(63, 63, 63);
+  background: $secondary;
   border-radius: 5px;
   height:20%;
+  border: 2px solid $primary;
   .content{
     position: relative;
     bottom: 10px;
@@ -84,7 +97,7 @@ body{
     font-family: monospace;
   }
   #container{
-    background: rgb(14, 14, 14);
+    background: $tertiary;
     border-radius: 5px;
     width: 60%;
     height: 100px;
